@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Seeds\" />
+    <Folder Include="Shares\Enums\" />
+    <Folder Include="Shares\Contracts\" />
+    <Folder Include="Shares\Filters\" />
+    <Folder Include="Shares\Exceptions\" />
+    <Folder Include="src\Videos\Controllers\" />
+    <Folder Include="src\Videos\Repositories\" />
+    <Folder Include="src\Videos\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.11.6" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.11.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ImageLibrary.MongoDB\ImageLibrary.MongoDB.csproj" />
+  </ItemGroup>
+
+</Project>
