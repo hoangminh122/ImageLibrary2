@@ -12,6 +12,7 @@ namespace ImageLibrary.MongoDB.Repository
 {
     public interface IMongoRepository<TEntity, TPrimaryKey> where TEntity : class, IEntity<TPrimaryKey>
     {
+        IMongoCollection<TEntity> Collection { get; }
         int Count();
         int Count(Expression<Func<TEntity, bool>> predicate);
         Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
