@@ -1,3 +1,5 @@
+using ImageLibrary.MongoDB;
+using ImageLibrary.Services.Tests;
 using ImageLibrary.Shares.Swaggers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -45,6 +47,9 @@ namespace ImageLibrary
 
             });
             services.AddMvc();
+
+            services.AddMongoDbRepository(Configuration);
+            services.AddTransient<ITestService,TestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

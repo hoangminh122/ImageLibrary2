@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Extensions.Configuration;
 using ImageLibrary.MongoDB.Configuration.MongoDb;
 using ImageLibrary.MongoDB.Context;
+using ImageLibrary.MongoDB.Repository;
 
 namespace ImageLibrary.MongoDB
 {
@@ -20,8 +21,19 @@ namespace ImageLibrary.MongoDB
                  = configuration["MongoSettings:Database"];
             });
 
-            services.AddSingleton<IMongoDbContext,MongoDbContext>();
+            services.AddSingleton(typeof(IMongoRepository<,>), typeof(MongoRepository<,>));
 
+        }
+
+        public static void AddMongoDbRepository(this IServiceCollection services, string connectionString,string database)
+        {
+            services.Configure<MongoDbSettings>(options =>
+            {
+                options.ConnectionString = connectionString;
+                options.Database = database;
+            });
+
+            services.AddSingleton(typeof(IMongoRepository<,>),typeof(MongoRepository<,>));
         }
     }
 }

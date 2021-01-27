@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageLibrary.MongoDB\ImageLibrary.MongoDB.csproj" />
+    <ProjectReference Include="..\ImageLibrary.Services\ImageLibrary.Services.csproj" />
   </ItemGroup>
 
 </Project>
