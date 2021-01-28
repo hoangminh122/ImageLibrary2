@@ -174,6 +174,7 @@ namespace ImageLibrary.MongoDB.Repository
             throw new NotImplementedException();
         }
 
+
         public TEntity Insert(TEntity entity)
         {
             throw new NotImplementedException();
@@ -309,4 +310,6 @@ namespace ImageLibrary.MongoDB.Repository
             throw new NotImplementedException();
         }
     }
+
+
 }

@@ -1,6 +1,6 @@
 using ImageLibrary.MongoDB;
+using ImageLibrary.Services.Auths;
 using ImageLibrary.Services.Tests;
-using ImageLibrary.Shares.Swaggers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,13 +43,14 @@ namespace ImageLibrary
                         Url = new Uri("https://example.com/license"),
                     }
                 });
-                c.OperationFilter<SwaggerFileOperationFilter>();
+                //c.OperationFilter<SwaggerFileOperationFilter>();
 
             });
             services.AddMvc();
 
             services.AddMongoDbRepository(Configuration);
             services.AddTransient<ITestService,TestService>();
+            services.AddTransient<IAuthService, AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
